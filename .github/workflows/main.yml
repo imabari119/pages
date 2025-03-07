@@ -1,0 +1,24 @@
+name: Download and Commit JSON
+
+on:
+  schedule:
+    - cron: '00 21 * * *'
+
+jobs:
+  download-json:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Download data.json
+      run: curl -o data.json ${{ secrets.JSON_URL }}
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add data.json
+        git commit -m 'Update data.json'
+        git push
