@@ -1,4 +1,4 @@
-﻿function getDateFromURL() {
+function getDateFromURL() {
   const urlParams = new URLSearchParams(window.location.search);
   const dateParam = urlParams.get("date");
   if (dateParam && /^\d{4}-\d{2}-\d{2}$/.test(dateParam)) {
@@ -36,8 +36,7 @@ function renderHospitals(hospitalData, dates) {
         .map(createHospitalCard)
         .join("")} </div>`;
     } else {
-      html += `<h2 class="title is-4 has-text-centered has-text-danger">エラー</h2><div class="columns"><div class="column is-half is-offset-one-quarter"><div class="card"><div class="card-content"><h3 class="subtitle is-5">当番医情報が見つかりませんでした</h3><div class="content"><p><span class="text"><a href="https://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2310/initialize?pref=38">えひめ医療情報ネット</a>をご確認ください</span></p></div></div></div></div></div>`;
-      break;
+      html += `<p class="date">${date}の当番医情報はありません。<br><a href="https://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2310/initialize?pref=38">えひめ医療情報ネット</a>をご確認ください</p>`;
     }
   });
   mainElement.innerHTML = html;
