@@ -36,7 +36,7 @@ function renderHospitals(hospitalData, dates) {
         .map(createHospitalCard)
         .join("")} </div>`;
     } else {
-      html += `<p class="date">${date}の当番医情報はありません。<br><a href="https://www.iryou.teikyouseido.mhlw.go.jp/znk-web/juminkanja/S2310/initialize?pref=38">えひめ医療情報ネット</a>をご確認ください</p>`;
+      html += `<div class="columns is-multiline"><div class="column is-12-tablet is-8-desktop is-offset-2-desktop"><div class="card is-warning"><div class="card-content"><div class="content"><p>${date}の当番医情報が見つかりません</p><p><a href="#search">救急病院を調べる</a>からご確認ください</p></div></div></div></div></div>`;
     }
   });
   mainElement.innerHTML = html;
