@@ -32,7 +32,7 @@ function renderHospitals(hospitalData, dates) {
   dates.forEach((date) => {
     const dayData = hospitalData[date];
     if (dayData) {
-      html += `<h2 class="title is-4 has-text-centered">${dayData.date_week}</h2><div class="columns is-multiline is-centered"> ${dayData.hospitals
+      html += `<h2 class="title is-4 has-text-centered">${dayData.date_week}</h2><div class="columns is-multiline"> ${dayData.hospitals
         .map(createHospitalCard)
         .join("")} </div>`;
     } else {
