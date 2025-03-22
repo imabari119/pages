@@ -24,7 +24,7 @@ async function fetchHospitalData() {
 }
 function createHospitalCard(hospital) {
 
-  return `<div class="column is-12-tablet is-6-desktop"><div class="card"><div class="card-content"><h3 class="subtitle is-5"><a href=${hospital.link} target="_blank">${hospital.name}</a></h3><div class="content"><p><span class="tag is-danger"><i class="fas fa-medkit"></i>診療</span><span class="text">${hospital.medical}</span></p><p><span class="tag is-danger"><i class="far fa-clock"></i>時間</span><span class="text">${hospital.time}</span></p><p><span class="tag is-danger"><i class="fas fa-map-marker-alt"></i>住所</span><span class="text"><a href="${hospital.navi}">${hospital.address}</a></span></p><p><span class="tag is-danger"><i class="fas fa-phone"></i>電話</span><span class="text"><a href="tel:${hospital.daytime}">${hospital.daytime}</a></span></p></div></div></div></div>`;
+  return `<div class="column is-12-tablet is-8-desktop is-offset-2-desktop"><div class="card"><div class="card-content"><h3 class="subtitle is-5"><a href=${hospital.link} target="_blank">${hospital.name}</a></h3><div class="content"><p><span class="tag is-danger"><i class="fas fa-medkit"></i>診療</span><span class="text">${hospital.medical}</span></p><p><span class="tag is-danger"><i class="far fa-clock"></i>時間</span><span class="text">${hospital.time}</span></p><p><span class="tag is-danger"><i class="fas fa-map-marker-alt"></i>住所</span><span class="text"><a href="${hospital.navi}">${hospital.address}</a></span></p><p><span class="tag is-danger"><i class="fas fa-phone"></i>電話</span><span class="text"><a href="tel:${hospital.daytime}">${hospital.daytime}</a></span></p></div></div></div></div>`;
 }
 function renderHospitals(hospitalData, dates) {
   const mainElement = document.getElementById("hospitalList");
@@ -32,7 +32,7 @@ function renderHospitals(hospitalData, dates) {
   dates.forEach((date) => {
     const dayData = hospitalData[date];
     if (dayData) {
-      html += `<h2 class="title is-4 has-text-centered">${dayData.date_week}</h2><div class="columns is-multiline"> ${dayData.hospitals
+      html += `<h2 class="title is-4 has-text-centered">${dayData.date_week}</h2><div class="columns is-multiline is-centered"> ${dayData.hospitals
         .map(createHospitalCard)
         .join("")} </div>`;
     } else {
