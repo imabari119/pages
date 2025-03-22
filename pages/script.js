@@ -36,7 +36,7 @@ function renderHospitals(hospitalData, dates) {
         .map(createHospitalCard)
         .join("")} </div>`;
     } else {
-      html += `<div class="columns is-multiline"><div class="column is-12-tablet is-8-desktop is-offset-2-desktop"><div class="card is-warning"><div class="card-content"><div class="content"><p>${date}の当番医情報が見つかりません</p><p><a href="#search">救急病院を調べる</a>からご確認ください</p></div></div></div></div></div>`;
+      html += `<h2 class="title is-4 has-text-centered">エラー</h2><div class="columns is-multiline"><div class="column is-12-tablet is-8-desktop is-offset-2-desktop"><div class="card is-warning"><div class="card-content"><h3 class="subtitle is-5">当番医情報が見つかりません</h3><div class="content"><p><span class="tag is-danger"><i class="fas fa-calendar-days"></i> 日付</span><span>${date}</span></p><p><span class="tag is-danger"><i class="fas fa-hand-pointer"></i> 操作</span><span class="text"><a href="#search">救急病院を調べる</a>からご確認ください</span></p></div></div></div></div></div>`;
     }
   });
   mainElement.innerHTML = html;
